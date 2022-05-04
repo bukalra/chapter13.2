@@ -12,9 +12,9 @@ create_table_sql = """
    """
 
 class Todos:
-    def __init__(self) -> None:
-        pass
-
+    def __init__(self, filename):
+        self.filename = filename
+        
     def create_connection(self, db_file):
         conn = None
         try:
@@ -92,4 +92,4 @@ class Todos:
         except sqlite3.OperationalError as e:
             print(e)
 
-todos = Todos()
+todos = Todos("database.db")
